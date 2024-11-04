@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginadiagnostico1.dart';
+import 'package:prueba1/widgets/termometro.dart';
 
 class PaginaDiagnostico extends StatelessWidget {
   const PaginaDiagnostico({super.key});
@@ -35,11 +36,7 @@ class PaginaDiagnostico extends StatelessWidget {
             Row(
               children: [
                 Column(
-                  children: [
-                    parImagenes(),
-                    parImagenes(),
-                    parImagenes()
-                  ],
+                  children: [parImagenes(), parImagenes(), parImagenes()],
                 ),
                 Column(
                   children: [
@@ -65,7 +62,8 @@ class PaginaDiagnostico extends StatelessWidget {
                   ],
                 )
               ],
-            )
+            ),
+            Termometro()
           ],
         ),
       ),
