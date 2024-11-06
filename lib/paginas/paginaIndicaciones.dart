@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaCalibracion.dart';
+import 'package:prueba1/utilidades/constantesColores.dart';
+import 'package:prueba1/widgets/contenedorTexto.dart';
+import 'package:prueba1/widgets/imgRedonda.dart';
 
 class PaginaIndicaciones extends StatelessWidget {
   const PaginaIndicaciones({super.key});
@@ -7,44 +10,58 @@ class PaginaIndicaciones extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Comienzo de diagnostico'),
+      ),
+      backgroundColor: Constantescolores.fondogenerico,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Text('comencemos con el diagnostico'),
-            Row(
+            Column(
               children: [
-                Column(
-                  children: [
-                    const Text('Colocate los sensores'),
-                    SizedBox(
-                      width: 90,
-                      height: 90,
-                      child: Image.network(
-                          'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
-                    )
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(bottom: 50),
+                  child: const Text(
+                    'Colocate los sensores',
+                    style: TextStyle(fontSize: 30),
+                  ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
-                const Column(
-                  children: [
-                    Text('sensor de respiracion:     hjhjhj'),
-                    Text('sensor cardiaco:     hjhjhj'),
-                    Text('sensor de sudoracion:     hjhjhj'),
-                  ],
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: 
+                  ImgRedondo()
                 )
               ],
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return const PaginaCalibracion();
-                }));
-              },
-              child: const Text('Continuar'),
+            const SizedBox(
+              width: 20,
+            ),
+            ContenedorTexto(texto: 'Sensor de Frecuencia Respiratoria', tamanio: 25,),
+            ContenedorTexto(
+                texto: 'Colocar la banda en el torax debajo de las costillas'),
+                ContenedorTexto(texto: 'Sensor de Frecuencia Respiratoria', tamanio: 25,),
+            ContenedorTexto(
+                texto: 'Colocar la banda en el torax debajo de las costillas'),
+            
+            ContenedorTexto(texto: 'Sensor de sudoracion',tamanio: 25,),
+            ContenedorTexto(
+                texto: 'Coloque los dedales que se encuentran en el compartimento en los dedos medio y anular'),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const PaginaCalibracion();
+                    }));
+                  },
+                  child: const Text('Continuar'),
+                ),
+              ],
             )
           ],
         ),

@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaDiagnostico.dart';
+import 'package:prueba1/paginas/paginadiagnostico1.dart';
+import 'package:prueba1/utilidades/constantesColores.dart';
+import 'package:prueba1/utilidades/constantesImgs.dart';
+import 'package:prueba1/widgets/contenedorTexto.dart';
 
 class PaginaCalibracion extends StatelessWidget {
   const PaginaCalibracion({super.key});
 
-  Widget parImagenes() {
+  Widget parImagenes(
+      {String fotoInicial = ConstantesImgs.pulmones,
+      String fotoSegunda = ConstantesImgs.pulmones}) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
           width: 90,
           height: 90,
-          child: Image.network(
-              'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
+          child: Image.asset(fotoInicial),
         ),
         SizedBox(
-          width: 90,
+          width: 500,
           height: 90,
-          child: Image.network(
-              'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
+          child: Image.asset(
+            fotoSegunda,
+            fit: BoxFit.fill,
+          ),
         )
       ],
     );
@@ -26,44 +34,49 @@ class PaginaCalibracion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('CALIBRACION'),
+      ),
+      backgroundColor: Constantescolores.fondogenerico,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('CALIBRACION '),
-            const Text('Mantengase quieto durante el diagnostico'),
-            Row(
+            ContenedorTexto(
+              texto: 'Mantengase quieto durante el diagnostico',
+              tamanio: 16,
+            ),
+            Column(
               children: [
-                Column(
-                  children: [
-                    parImagenes(),
-                    parImagenes(),
-                    parImagenes(),
-                  ],
+                parImagenes(
+                    fotoInicial: ConstantesImgs.pulmones,
+                    fotoSegunda: ConstantesImgs.frecresp),
+                parImagenes(
+                    fotoInicial: ConstantesImgs.corazon,
+                    fotoSegunda: ConstantesImgs.freccardiaca),
+                parImagenes(
+                    fotoInicial: ConstantesImgs.sudoracion,
+                    fotoSegunda: ConstantesImgs.respgalvanica),
+              ],
+            ),
+            Column(
+              children: [
+                ContenedorTexto(
+                    texto:
+                        'Asegurate de tener bien colocados correctamente los sensores'),
+                SizedBox(
+                  width: 200,
+                  height: 90,
                 ),
-                Column(
-                  children: [
-                    const Text('Colocate los sensores'),
-                    SizedBox(
-                      width: 90,
-                      height: 90,
-                      child: Image.network(
-                          'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return PaginaDiagnostico();
-                            },
-                          ),
-                        );
-                      },
-                      child: Text('Continuar'),
-                    )
-                  ],
-                )
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const PaginaDiagnostico();
+                    }));
+                  },
+                  child: const Text('Continuar'),
+                ),
               ],
             )
           ],

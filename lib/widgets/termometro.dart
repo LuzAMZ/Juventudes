@@ -39,23 +39,23 @@ class _TermometroState extends State<Termometro>
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 100),
         child: Stack(
           children: [
             Row(
               children: [
                 Container(
-                  height: 20,
+                  height: 50,
                   width: tamanioSegmento,
                   color: Colors.red,
                 ),
                 Container(
-                  height: 20,
+                  height: 50,
                   width: tamanioSegmento,
                   color: Colors.yellow,
                 ),
                 Container(
-                  height: 20,
+                  height: 50,
                   width: tamanioSegmento,
                   color: Colors.green,
                 )

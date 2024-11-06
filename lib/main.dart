@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaIndicaciones.dart';
+import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
+import 'package:prueba1/widgets/imgRedonda.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,8 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 5, 92, 163)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Demo Home Page'),
+      home: const MyHomePage(
+          title: 'Dispositivo de control de estres y ansiedad'),
     );
   }
 }
@@ -40,37 +43,43 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      backgroundColor: Constantescolores.fondogenerico,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'BIENVENIDO',
-              tamanio: 24,
+              tamanio: 30,
             ),
-            Text(
+            const Text(
               'Introduce tu edad',
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsetsDirectional.symmetric(horizontal: 80),
               child: TextField(),
             ),
-            Text(
+            const Text(
               'Introduce tu carrera',
             ),
-            TextField(),
+            const Padding(
+              padding: EdgeInsetsDirectional.symmetric(horizontal: 80),
+              child: TextField(),
+            ),
             GestureDetector(
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) {
-                  return PaginaIndicaciones();
+                  return const PaginaIndicaciones();
                 }));
               },
-              child: SizedBox(
-                width: 90,
-                height: 90,
-                child: Image.network(
-                    'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
+              child: const Padding(
+                padding: EdgeInsets.all(20),
+                child: SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: ImgRedondo(),
+                ),
               ),
             ),
           ],
@@ -80,3 +89,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
