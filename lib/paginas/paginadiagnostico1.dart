@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:prueba1/paginas/paginaDiagnostico.dart';
+import 'package:prueba1/utilidades/constantesColores.dart';
+import 'package:prueba1/utilidades/constantesImgs.dart';
+import 'package:prueba1/widgets/contenedorTexto.dart';
+import 'package:prueba1/widgets/imgRedonda.dart';
+import 'package:prueba1/widgets/termometro.dart';
 
 class PaginaDiagnostico1 extends StatelessWidget {
   const PaginaDiagnostico1({super.key});
 
-  Widget parImagenes() {
+  Widget parImagenesejercicios(
+      {String fotoMeditacion = ConstantesImgs.meditacion,
+      String fotorespiracion = ConstantesImgs.respiracion}) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          width: 90,
-          height: 90,
-          child: Image.network(
-              'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
+          width: 500,
+          height: 200,
+          child: Image.asset(fotoMeditacion),
         ),
         SizedBox(
-          width: 90,
-          height: 90,
-          child: Image.network(
-              'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
+          width: 200,
+          height: 200,
+          child: Image.asset(
+            fotorespiracion,
+            fit: BoxFit.fill,
+          ),
         )
       ],
     );
@@ -24,12 +34,54 @@ class PaginaDiagnostico1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Tu diagnostico es el siguiente'),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('PRIMER DIAGNÓSTICO'),
+      ),
+      backgroundColor: Constantescolores.fondogenerico,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ContenedorTexto(
+              texto: 'Selecciona una opcion:',
+              tamanio: 25,
+            ),
+            ContenedorTexto(
+              texto: 'Mediatcion',
+              tamanio: 25,
+            ),
+            ContenedorTexto(
+              texto: 'tecnicas de respiracion',
+              tamanio: 25,
+            ),
+            Column(
+                  children: [
+                    parImagenesejercicios(
+                        fotoMeditacion: ConstantesImgs.meditacion,
+                        fotorespiracion: ConstantesImgs.respiracion)
+                  ],
+            ),
+            const Padding(padding: EdgeInsets.all(30)),
+            Column(
+              children: [
+                SizedBox(
+                    width: 150,
+                    height: 150,
+                    child: ImgRedondo(ConstantesImgs.robot)),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const PaginaDiagnostico1();
+                }));
+              },
+              child: const Text('Continuar'),
+            ),
+          ],
+        ),
       ),
     );
   }

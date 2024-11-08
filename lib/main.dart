@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaIndicaciones.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
+import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
 import 'package:prueba1/widgets/imgRedonda.dart';
 
@@ -21,10 +22,22 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 5, 92, 163)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(
-          title: 'Dispositivo de control de estres y ansiedad'),
+      home: const MyHomePage(title: 'Serenity Sense'),
     );
   }
+}
+
+Widget Insertlogo({String fotoLogo = ConstantesImgs.logo}) {
+  return Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      SizedBox(
+        width: 300,
+        height: 300,
+        child: Image.asset(fotoLogo),
+      ),
+    ],
+  );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -48,10 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Insertlogo(),
             const ContenedorTexto(
               texto: 'BIENVENIDO',
               tamanio: 30,
             ),
+            
             const Text(
               'Introduce tu edad',
             ),
@@ -78,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: SizedBox(
                   width: 300,
                   height: 300,
-                  child: ImgRedondo(),
+                  child: ImgRedondo(ConstantesImgs.robot),
                 ),
               ),
             ),
@@ -89,4 +104,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-

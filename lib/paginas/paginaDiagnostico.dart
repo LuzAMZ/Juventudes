@@ -3,6 +3,7 @@ import 'package:prueba1/paginas/paginadiagnostico1.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
+import 'package:prueba1/widgets/imgRedonda.dart';
 import 'package:prueba1/widgets/termometro.dart';
 
 class PaginaDiagnostico extends StatelessWidget {
@@ -20,7 +21,7 @@ class PaginaDiagnostico extends StatelessWidget {
           child: Image.asset(fotoInicial),
         ),
         SizedBox(
-          width: 500,
+          width: 600,
           height: 90,
           child: Image.asset(
             fotoSegunda,
@@ -45,30 +46,28 @@ class PaginaDiagnostico extends StatelessWidget {
             ContenedorTexto(
               texto: 'El resultado de tu diagnostico es el siguiente:',
               tamanio: 25,
-            ),
-            Row(
+            ),  
+          Column(
               children: [
-                Column(
-                  children: [
-                    parImagenes(
-                        fotoInicial: ConstantesImgs.pulmones,
-                        fotoSegunda: ConstantesImgs.frecresp),
-                    parImagenes(
-                        fotoInicial: ConstantesImgs.corazon,
-                        fotoSegunda: ConstantesImgs.freccardiaca),
-                    parImagenes(
-                        fotoInicial: ConstantesImgs.sudoracion,
-                        fotoSegunda: ConstantesImgs.respgalvanica),
-                  ],
-                ),
-                Column(
+                parImagenes(
+                    fotoInicial: ConstantesImgs.pulmones,
+                    fotoSegunda: ConstantesImgs.frecresp),
+                parImagenes(
+                    fotoInicial: ConstantesImgs.corazon,
+                    fotoSegunda: ConstantesImgs.freccardiaca),
+                parImagenes(
+                    fotoInicial: ConstantesImgs.sudoracion,
+                    fotoSegunda: ConstantesImgs.respgalvanica),
+              ],
+            ),
+            const Padding(padding: EdgeInsets.all(30)),
+            Column(
                   children: [
                     SizedBox(
                       width: 90,
                       height: 90,
-                      child: Image.network(
-                          'https://m.media-amazon.com/images/I/51DBd7O6GEL._AC_SX569_.jpg'),
-                    ),
+                      child: ImgRedondo(ConstantesImgs.robot)),
+                    
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context)
@@ -79,10 +78,8 @@ class PaginaDiagnostico extends StatelessWidget {
                       child: const Text('Continuar'),
                     ),
                   ],
-                )
-              ],
-            ),
-            const Padding(padding: EdgeInsets.all(20), child: Termometro()),
+                ),
+            const Padding(padding: EdgeInsets.all(50), child: Termometro()),
           ],
         ),
       ),

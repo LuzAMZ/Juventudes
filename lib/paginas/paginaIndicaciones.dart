@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaCalibracion.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
+import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
 import 'package:prueba1/widgets/imgRedonda.dart';
 
@@ -31,21 +32,21 @@ class PaginaIndicaciones extends StatelessWidget {
                   width: 200,
                   height: 200,
                   child: 
-                  ImgRedondo()
+                  ImgRedondo(ConstantesImgs.robot)
                 )
               ],
             ),
             const SizedBox(
               width: 20,
             ),
-            ContenedorTexto(texto: 'Sensor de Frecuencia Respiratoria', tamanio: 25,),
+            ContenedorTexto(texto: '1- Sensor de Frecuencia Respiratoria', tamanio: 25,),
             ContenedorTexto(
                 texto: 'Colocar la banda en el torax debajo de las costillas'),
-                ContenedorTexto(texto: 'Sensor de Frecuencia Respiratoria', tamanio: 25,),
+                ContenedorTexto(texto: '2- Sensor de Frecuencia Cardiaca', tamanio: 25,),
             ContenedorTexto(
-                texto: 'Colocar la banda en el torax debajo de las costillas'),
+                texto: 'Colocar el dedo en el compartimento sobre el sensor, sin hacer presion '),
             
-            ContenedorTexto(texto: 'Sensor de sudoracion',tamanio: 25,),
+            ContenedorTexto(texto: '3- Sensor de sudoracion',tamanio: 25,),
             ContenedorTexto(
                 texto: 'Coloque los dedales que se encuentran en el compartimento en los dedos medio y anular'),
             

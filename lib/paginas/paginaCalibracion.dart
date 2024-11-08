@@ -4,6 +4,7 @@ import 'package:prueba1/paginas/paginadiagnostico1.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
+import 'package:prueba1/widgets/imgRedonda.dart';
 
 class PaginaCalibracion extends StatelessWidget {
   const PaginaCalibracion({super.key});
@@ -20,7 +21,7 @@ class PaginaCalibracion extends StatelessWidget {
           child: Image.asset(fotoInicial),
         ),
         SizedBox(
-          width: 500,
+          width: 600,
           height: 90,
           child: Image.asset(
             fotoSegunda,
@@ -66,7 +67,8 @@ class PaginaCalibracion extends StatelessWidget {
                         'Asegurate de tener bien colocados correctamente los sensores'),
                 SizedBox(
                   width: 200,
-                  height: 90,
+                  height: 90,             
+                  child: ImgRedondo(ConstantesImgs.robot)
                 ),
                 ElevatedButton(
                   onPressed: () {
