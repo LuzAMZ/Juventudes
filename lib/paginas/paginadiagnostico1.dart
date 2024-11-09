@@ -39,31 +39,31 @@ class PaginaDiagnostico1 extends StatelessWidget {
         title: const Text('PRIMER DIAGNÓSTICO'),
       ),
       backgroundColor: Constantescolores.fondogenerico,
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'Selecciona una opcion:',
               tamanio: 25,
             ),
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'Mediatcion',
               tamanio: 25,
             ),
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'tecnicas de respiracion',
               tamanio: 25,
             ),
             Column(
-                  children: [
-                    parImagenesejercicios(
-                        fotoMeditacion: ConstantesImgs.meditacion,
-                        fotorespiracion: ConstantesImgs.respiracion)
-                  ],
+              children: [
+                parImagenesejercicios(
+                    fotoMeditacion: ConstantesImgs.meditacion,
+                    fotorespiracion: ConstantesImgs.respiracion)
+              ],
             ),
             const Padding(padding: EdgeInsets.all(30)),
-            Column(
+            const Column(
               children: [
                 SizedBox(
                     width: 150,

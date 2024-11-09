@@ -39,11 +39,11 @@ class PaginaCalibracion extends StatelessWidget {
         title: const Text('CALIBRACION'),
       ),
       backgroundColor: Constantescolores.fondogenerico,
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'Mantengase quieto durante el diagnostico',
               tamanio: 16,
             ),
@@ -62,14 +62,13 @@ class PaginaCalibracion extends StatelessWidget {
             ),
             Column(
               children: [
-                ContenedorTexto(
+                const ContenedorTexto(
                     texto:
                         'Asegurate de tener bien colocados correctamente los sensores'),
-                SizedBox(
-                  width: 200,
-                  height: 90,             
-                  child: ImgRedondo(ConstantesImgs.robot)
-                ),
+                const SizedBox(
+                    width: 200,
+                    height: 90,
+                    child: ImgRedondo(ConstantesImgs.robot)),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)

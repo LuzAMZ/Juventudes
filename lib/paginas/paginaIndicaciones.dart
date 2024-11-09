@@ -15,41 +15,48 @@ class PaginaIndicaciones extends StatelessWidget {
         title: const Text('Comienzo de diagnostico'),
       ),
       backgroundColor: Constantescolores.fondogenerico,
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Column(
+            const Column(
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: 50),
-                  child: const Text(
+                  child: Text(
                     'Colocate los sensores',
                     style: TextStyle(fontSize: 30),
                   ),
                 ),
                 SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: 
-                  ImgRedondo(ConstantesImgs.robot)
-                )
+                    width: 200,
+                    height: 200,
+                    child: ImgRedondo(ConstantesImgs.robot))
               ],
             ),
             const SizedBox(
               width: 20,
             ),
-            ContenedorTexto(texto: '1- Sensor de Frecuencia Respiratoria', tamanio: 25,),
-            ContenedorTexto(
+            const ContenedorTexto(
+              texto: '1- Sensor de Frecuencia Respiratoria',
+              tamanio: 25,
+            ),
+            const ContenedorTexto(
                 texto: 'Colocar la banda en el torax debajo de las costillas'),
-                ContenedorTexto(texto: '2- Sensor de Frecuencia Cardiaca', tamanio: 25,),
-            ContenedorTexto(
-                texto: 'Colocar el dedo en el compartimento sobre el sensor, sin hacer presion '),
-            
-            ContenedorTexto(texto: '3- Sensor de sudoracion',tamanio: 25,),
-            ContenedorTexto(
-                texto: 'Coloque los dedales que se encuentran en el compartimento en los dedos medio y anular'),
-            
+            const ContenedorTexto(
+              texto: '2- Sensor de Frecuencia Cardiaca',
+              tamanio: 25,
+            ),
+            const ContenedorTexto(
+                texto:
+                    'Colocar el dedo en el compartimento sobre el sensor, sin hacer presion '),
+            const ContenedorTexto(
+              texto: '3- Sensor de sudoracion',
+              tamanio: 25,
+            ),
+            const ContenedorTexto(
+                texto:
+                    'Coloque los dedales que se encuentran en el compartimento en los dedos medio y anular'),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

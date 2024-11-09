@@ -39,15 +39,15 @@ class PaginaDiagnostico extends StatelessWidget {
         title: const Text('PRIMER DIAGNÓSTICO'),
       ),
       backgroundColor: Constantescolores.fondogenerico,
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ContenedorTexto(
+            const ContenedorTexto(
               texto: 'El resultado de tu diagnostico es el siguiente:',
               tamanio: 25,
-            ),  
-          Column(
+            ),
+            Column(
               children: [
                 parImagenes(
                     fotoInicial: ConstantesImgs.pulmones,
@@ -62,23 +62,22 @@ class PaginaDiagnostico extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.all(30)),
             Column(
-                  children: [
-                    SizedBox(
-                      width: 90,
-                      height: 90,
-                      child: ImgRedondo(ConstantesImgs.robot)),
-                    
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return const PaginaDiagnostico1();
-                        }));
-                      },
-                      child: const Text('Continuar'),
-                    ),
-                  ],
+              children: [
+                const SizedBox(
+                    width: 90,
+                    height: 90,
+                    child: ImgRedondo(ConstantesImgs.robot)),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const PaginaDiagnostico1();
+                    }));
+                  },
+                  child: const Text('Continuar'),
                 ),
+              ],
+            ),
             const Padding(padding: EdgeInsets.all(50), child: Termometro()),
           ],
         ),

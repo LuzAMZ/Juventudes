@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       backgroundColor: Constantescolores.fondogenerico,
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -66,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
               texto: 'BIENVENIDO',
               tamanio: 30,
             ),
-            
             const Text(
               'Introduce tu edad',
             ),
