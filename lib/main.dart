@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prueba1/manejo_estados/api_rest/api_rest_state.dart';
 import 'package:prueba1/paginas/paginaIndicaciones.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
 import 'package:prueba1/widgets/imgRedonda.dart';
+
+import 'manejo_estados/api_rest/api_rest_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,13 +20,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Serenity Sense',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 5, 92, 163)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Serenity Sense'),
+      home: BlocProvider(
+        create: (context) => RestCubit(),
+        child: const MyHomePage(title: 'Serenity Sense'),
+      ),
     );
   }
 }
@@ -65,6 +72,11 @@ class _MyHomePageState extends State<MyHomePage> {
             const ContenedorTexto(
               texto: 'BIENVENIDO',
               tamanio: 30,
+            ),
+            BlocBuilder<RestCubit, RestState>(
+              builder: (context, state) {
+                return Text(state.datosRecibidos);
+              },
             ),
             const Text(
               'Introduce tu edad',
