@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaDiagnostico.dart';
-import 'package:prueba1/paginas/paginadiagnostico1.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';

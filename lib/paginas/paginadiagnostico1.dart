@@ -48,11 +48,11 @@ class PaginaDiagnostico1 extends StatelessWidget {
               tamanio: 25,
             ),
             const ContenedorTexto(
-              texto: 'Mediatcion',
+              texto: 'Meditación',
               tamanio: 25,
             ),
             const ContenedorTexto(
-              texto: 'tecnicas de respiracion',
+              texto: 'tecnicas de respiración',
               tamanio: 25,
             ),
             Column(
