@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:prueba1/paginas/paginaDiagnostico.dart';
+import 'package:prueba1/paginas/paginadiagnostico1.dart';
 import 'package:prueba1/utilidades/constantesColores.dart';
 import 'package:prueba1/utilidades/constantesImgs.dart';
 import 'package:prueba1/widgets/contenedorTexto.dart';
 import 'package:prueba1/widgets/imgRedonda.dart';
+import 'package:prueba1/widgets/termometro.dart';
 
-class PaginaCalibracion extends StatelessWidget {
+class PaginaCalibracion extends StatefulWidget {
   const PaginaCalibracion({super.key});
 
+  @override
+  State<PaginaCalibracion> createState() => _PaginaCalibracionState();
+}
+
+class _PaginaCalibracionState extends State<PaginaCalibracion> {
   Widget parImagenes(
       {String fotoInicial = ConstantesImgs.pulmones,
       String fotoSegunda = ConstantesImgs.pulmones}) {
@@ -30,6 +37,8 @@ class PaginaCalibracion extends StatelessWidget {
       ],
     );
   }
+
+  bool mostrandoTermometro = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,13 +79,20 @@ class PaginaCalibracion extends StatelessWidget {
                     child: ImgRedondo(ConstantesImgs.robot)),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return const PaginaDiagnostico();
-                    }));
+                    if (mostrandoTermometro) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const PaginaDiagnostico1();
+                      }));
+                    } else {
+                      setState(() {
+                        mostrandoTermometro = true;
+                      });
+                    }
                   },
                   child: const Text('Continuar'),
                 ),
+                if (mostrandoTermometro) const Termometro()
               ],
             )
           ],

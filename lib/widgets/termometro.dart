@@ -26,11 +26,6 @@ class _TermometroState extends State<Termometro>
         });
       });
     controller.forward();
-    animation.addStatusListener((status){
-      if(status == AnimationStatus.completed){
-        controller.reverse();
-      }
-    });
     
   }
 

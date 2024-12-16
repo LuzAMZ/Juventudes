@@ -74,9 +74,7 @@ class PaginaDiagnostico1 extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return const PaginaDiagnostico1();
-                }));
+                    .pop();
               },
               child: const Text('Continuar'),
             ),
